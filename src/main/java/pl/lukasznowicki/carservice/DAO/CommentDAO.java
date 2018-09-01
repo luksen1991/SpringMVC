@@ -16,16 +16,16 @@ public class CommentDAO {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private long Id;
-	@Column(name="Tittle",length=30,nullable=false)
+	@Column(name="Tittle")
 	private String tittle;
-	@Column(name="Content",length=255,nullable=false)
+	@Column(name="Content")
 	private String content;
+	
+	
 	public long getId() {
 		return Id;
-	}
-	public void setId(long id) {
-		Id = id;
 	}
 	public String getTittle() {
 		return tittle;

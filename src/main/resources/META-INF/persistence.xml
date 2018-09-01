@@ -17,7 +17,7 @@
 				value="jdbc:mysql://localhost:3306/mojaBaza" />
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL8Dialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.c3p0.unreturnedConnectionTimeout"
 				value="60" />
 			<property
