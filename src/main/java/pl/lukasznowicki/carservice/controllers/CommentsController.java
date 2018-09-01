@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import pl.lukasznowicki.carservice.DAO.CommentDAO;
 import pl.lukasznowicki.carservice.DAO.UserDAO;
+import pl.lukasznowicki.carservice.converters.RecordRangeConverter;
+import pl.lukasznowicki.carservice.dto.RocordRange;
 import pl.lukasznowicki.carservice.services.IssuesService;
 
 @Controller()
@@ -45,11 +47,11 @@ public class CommentsController {
 	}
 
 	@RequestMapping("/kic")
-	public String test(Model model) {
+	public String test(Model model,@RequestParam("range")RocordRange range) {
 		entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
 		entityManager = entityManagerFactory.createEntityManager();
 		TypedQuery<CommentDAO> query = entityManager.createQuery("select c from CommentDAO c", CommentDAO.class);
-		List<CommentDAO> result = query.getResultList();
+		List<CommentDAO> result = query.getResultList().subList(range.getFrom(), range.getTo());
 		model.addAttribute("result", result);
 		for (CommentDAO commentDAO : result) {
 			System.out.println("Title: " + commentDAO.getTittle() + " Content: " + commentDAO.getContent());
