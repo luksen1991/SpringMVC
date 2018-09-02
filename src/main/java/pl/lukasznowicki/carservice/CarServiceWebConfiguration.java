@@ -23,7 +23,7 @@ public class CarServiceWebConfiguration extends WebMvcConfigurerAdapter {
 	public IssuesService getIssueService() {
 		return new WebIssueService();
 	}
-	
+
 	@Bean
 	public ViewResolver viewResolver() {
 		FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();
@@ -32,7 +32,7 @@ public class CarServiceWebConfiguration extends WebMvcConfigurerAdapter {
 		freeMarkerViewResolver.setContentType("text/html;charset=UTF-8");
 		return freeMarkerViewResolver;
 	}
-	
+
 	@Bean
 	public FreeMarkerConfigurer freeMarkerConfigurer() {
 		FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
@@ -44,7 +44,5 @@ public class CarServiceWebConfiguration extends WebMvcConfigurerAdapter {
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addConverter(new RecordRangeConverter());
 	}
-	
-	
-	
+
 }
